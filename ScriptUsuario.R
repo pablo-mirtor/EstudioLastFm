@@ -1,6 +1,6 @@
 #Script1
 #Buscar a un usuario de semilla 
-culo
+
 apiKey<-"&api_key=82b23813669e5d6580f8a13e66e258e3"
 enlaceUsuario<-"http://ws.audioscrobbler.com/2.0/?method=user.getfriends&limit=500&user="
 listaUsuarios<-c('pabloskink')
