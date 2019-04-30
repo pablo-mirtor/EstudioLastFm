@@ -19,22 +19,23 @@ while(length(listaUsuarios) < maximo){
   enlace<-paste(enlaceUsuario,usuario,apiKey,sep="")
   datos<-xmlParse(enlace)
   xml_data <- xmlToList(datos)
-  print(xml_data[["friends"]][[".attrs"]])
-  usuarios <- as.list(xml_data[["friends"]])
-  amigos<-length(usuarios) - 1
-  if(amigos > 0){
-    if(amigos > maxAmigos){
-      maxAmigos<-amigos
-      usuarioMaximo<-usuario
-    }
-    
-    for(i in 1:amigos){
-      if(!is.element(usuarios[[i]][[1]], listaUsuarios)){
-        listaUsuarios<-c(listaUsuarios,usuarios[[i]][[1]])
-      }
-    }
-  }
   
+ if(!is.character(xml_data)){
+   usuarios <- as.list(xml_data[["friends"]])
+   amigos<-length(usuarios) - 1
+   if(amigos > maxAmigos){
+       maxAmigos<-amigos
+       usuarioMaximo<-usuario
+    }
+     
+    for(i in 1:amigos){
+     if(!is.element(usuarios[[i]][[1]], listaUsuarios)){
+       listaUsuarios<-c(listaUsuarios,usuarios[[i]][[1]])
+     }
+   }
+   
+   
+ }
   count<-count+1
 }
 print(listaUsuarios)
