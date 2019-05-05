@@ -19,7 +19,7 @@ while(length(listaUsuarios) < maximo){
   enlace<-paste(enlaceUsuario,usuario,apiKey,sep="")
   datos<-xmlParse(enlace)
   xml_data <- xmlToList(datos)
-  
+  print(xml_data[["friends"]][[".attrs"]][["total"]])
  if(!is.character(xml_data)){
    usuarios <- as.list(xml_data[["friends"]])
    amigos<-length(usuarios) - 1
@@ -35,7 +35,7 @@ while(length(listaUsuarios) < maximo){
    }
    
      
- } v
+ }
   count<-count+1
 }
 print(listaUsuarios)
