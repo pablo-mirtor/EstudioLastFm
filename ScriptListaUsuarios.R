@@ -42,5 +42,8 @@ while(length(listaUsuarios) < maximo){
   count<-count+1
 }
 
-write.csv(listaUsuarios, "usuarios.csv") #guardamos la lista en un fichero .csv
+nombreFichero<-"usuarios.csv"
+if(file.exists(nombreFichero)) #sobreescribe el fichero en caso de que exista 
+  file.remove(nombreFichero)
+write.csv(listaUsuarios, nombreFichero, row.names=FALSE) #guardamos la lista en un fichero .csv
 
