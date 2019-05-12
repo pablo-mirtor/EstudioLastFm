@@ -14,7 +14,8 @@ if(!file.exists(fichero)){
 } else {
   
   datosCsv <- read.csv(file=fichero, header=TRUE, sep=",")
-  
+  kmeans.result <- kmeans(datosCsv, 3)
+  print(datosCsv[[1]][[2]])
   for(i in 1:100){
     usuario<-datosCsv[[1]][[i]]
     enlace<-paste(enlaceArtistas,usuario,apiKey,sep="")
